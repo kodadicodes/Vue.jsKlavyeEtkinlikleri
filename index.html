@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <label for="name">İsim: </label>
+      <input type="text" v-on:keyup.enter="isimYakala" /><!-- 
+            Vue.js'de v-on:keyup veya @keyup kullanıldığında, olay, kullanıcı tuşa basıp çektiğinde (tuşu serbest bıraktığında) tetiklenir. Vue.js'te @keyup.enter, kullanıcının Enter tuşuna bastığında tetiklenen bir olay yöneticisidir.-->
+      <label for="age">Yaş: </label>
+      <input
+        type="text"
+        v-on:keyup.alt.enter="yasYakala"
+      /><!-- "Alt" tuşuyla "Enter" tuşuna basıldığında özel bir işlevi gerçekleştirmek için bir olay yöneticisidir.-->
+
+      <script>
+        const { createApp } = Vue;
+        createApp({
+            data(){
+                return{
+                    
+                }
+            },
+          methods: {
+            isimYakala() {
+              alert("enter'a basıldı ve isim yakalandı");
+            },
+            yasYakala() {
+              alert("alt + enter'a basıldı ve yaş yakalandı");
+            },
+          },
+        }).mount("#app");
+      </script>
+    </div>
+  </body>
+</html>
